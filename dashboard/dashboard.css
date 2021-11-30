@@ -1,0 +1,132 @@
+body{
+    margin: 0px;
+}
+
+.overallContent{
+    width: 100%;
+    height: 100vh;
+    background-color:burlywood;
+    display: flex;
+    margin: 0px;
+}
+
+.sideContent{
+    width: 9%;
+    height: 100vh;
+    background-color: #2CB67D;
+    margin: 0px;
+}
+
+.mainContent{
+    width: 91%;
+    height: 100vh;
+    background-color: whitesmoke;
+    margin: 0px;
+    
+}
+
+.sideCenterPos{
+    margin-top: 60%;
+}
+
+.sideContent div ul li{
+    margin-bottom: 50%;
+}
+
+#homeHover:hover{
+    background-color: red;
+}
+
+.flex-1-2{
+    width: 100%;
+    display: flex;
+}
+
+.flex-3-4{
+    width: 100%;
+    display: flex;
+}
+
+.card{
+    margin-left: 50px;
+}
+
+.card-text{
+    margin: 0 auto;
+}
+
+
+
+/* .mainContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.container-left{
+    position: absolute;
+    width: 20%;
+    height:100%;
+    left: 0px;
+    top: 92.8px;
+
+    background:  pink;
+}
+
+
+#dashboardWarp li{
+    list-style-type: none;
+    margin: 15px auto;
+    padding: 2px 0px;
+}
+
+#dashboardWarp li div{
+    padding: 0px;
+}
+
+
+#dashboardWarp{
+    position: absolute;
+    width: 212px;
+    height: 448px;
+    left: 1em;
+    top: 200px;
+
+    padding-left: 0px;
+
+    line-height: 28px;
+}
+
+
+main{
+    width: 716px;
+    height:577px;
+    left: 20%;
+    top:92.8px;
+}
+
+.queryContainers{
+    background-color: bisque;
+    border: 1px solid;
+    padding: 10px;
+    margin: 5px;
+
+}
+
+
+
+#landuse{
+    width: 45%;
+}
+
+#population{
+    width:45%;
+}
+
+#feed{
+    width:45%;
+}
+
+#customers{
+    width:45%;
+} */

@@ -1,0 +1,134 @@
+body{
+    background-image: url('../resources/images/login_bg.png');
+}
+
+.container{
+    align-items: center;
+    max-width: 400;
+    max-height: 40 vh;
+
+    margin-top: 7%;
+}
+
+#big{
+    max-width: 100%;
+    max-height: 100vh;
+    display: flex;
+}
+
+#side{
+    max-width: 70%;
+
+}
+
+form div{
+    margin: 20 px;
+}
+
+form{
+    align-items: center;
+    max-width: 100;
+    max-height: 40 vh;
+}
+
+
+
+
+/* 
+h3{
+    background-color: aqua;
+    font-weight: bolder;
+    text-align: center;
+    font-size:xx-large;
+    width:100%;
+}
+
+.container{
+    background-color: #FFFEEE;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 100%;
+    height: 75vh;
+} */
+/* 
+body{
+    margin: 0px;
+}
+
+.center{
+    align-items: center;
+    margin-left: 10%;
+}
+
+.error{
+    color: rgb(194, 11, 11);
+    margin-left: 10%;
+    margin-bottom: 20px;
+}
+
+.overallContainer{
+    width: 100%;
+    height: 100vh;
+    background-color: antiquewhite;
+    display: flex;
+}
+
+.sidecontainer{
+    width: 59%;
+    height: 100vh;
+    background-color:aquamarine;
+    
+}
+
+.conatiner{
+    height: 100vh;
+}
+
+h1{
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 10em 0px 10em 0em;
+    position: static;
+}
+
+h3{
+    text-align: center;
+}
+
+form{
+    align-items: center;
+    padding: 3em;
+    margin-top: 12em;
+    width: 100%;
+} */
+
+/* input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+
+input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  } */
+
+
+
+

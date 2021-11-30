@@ -1,0 +1,29 @@
+
+body{
+    background-image: url(../resources/images/animals_bg.png);
+    background-size:cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.container{
+    background-color: aliceblue;
+    position: flex;
+}
+
+.reptiles{
+    text-decoration: none;
+
+}
+
+.mammals{
+    text-decoration: none;
+}
+
+.birds{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
