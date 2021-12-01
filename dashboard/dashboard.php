@@ -30,7 +30,16 @@ $construction = $management->db_fetch();
 $management->getUnhealthyAnimals();
 $sickAnimals = $management->db_fetch();
 
-$management->get
+$management->getUnhealthyMammals();
+$sickMammals = $management->db_fetch();
+
+$management->getUnhealthyReptiles();
+$sickReptiles = $management->db_fetch();
+
+$management->getUnhealthyBirds();
+$sickBirds = $management->db_fetch();
+
+
 
 
 
@@ -129,9 +138,9 @@ $management->get
                             <h5 class="card-title">TOTAL :  <?php echo $sickAnimals[0]['sick'];?></h5>
                             <p class="card-text">
                                 <?php
-                                    echo "Sick Mammals: ";
-                                    echo "Sick Reptiles: ";
-                                    echo "Sick ";
+                                    echo "Sick Mammals: ". $sickMammals[0]['sickMammals']. '<br />';
+                                    echo "Sick Reptiles: ". $sickReptiles[0]['sickReptiles']. '<br />';
+                                    echo "Sick Birds: ". $sickBirds[0]['sickBirds'] .'<br />';
                                 ?>
                             </p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>

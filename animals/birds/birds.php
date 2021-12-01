@@ -1,5 +1,5 @@
 <?php
-    require_once("../../classes/Management.php");
+    require_once __DIR__."/classes/Management.php";
     $management = new Management;
     $management->db_connect();
 

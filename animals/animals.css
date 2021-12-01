@@ -1,12 +1,25 @@
 
 body{
-    background-image: url(../resources/images/animals_bg.png);
+    background-image: url('../resources/images/animal_b.png');
     background-size:cover;
     width: 100%;
     height: 100vh;
 }
 
-.container{
+.categories {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cate-add{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+
+/* .container{
     background-color: aliceblue;
     position: flex;
 }
@@ -26,4 +39,4 @@ body{
 
 a{
     text-decoration: none;
-}
+} */

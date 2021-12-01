@@ -63,17 +63,17 @@ class Management extends DbConnection{
     }
 
     public function getUnhealthyBirds(){
-        $sqk = 'SELECT COUNT(*) as `sickBirds` FROM animal, bird WHERE animalTag = birdTag AND keeper_act_of_management NOT LIKE "healthy"';
+        $sql = 'SELECT COUNT(*) as `sickBirds` FROM animal, bird WHERE animalTag = birdTag AND keeper_act_of_management NOT LIKE "healthy"';
         return $this->db_query($sql);
     }
 
-    public function getHealthyMammals(){
-        $sql = 'SELECT COUNT(*) FROM animal, mammal WHERE animalTag = mammalTag AND keeper_act_of_management LIKE "healthy"';
+    public function getUnhealthyMammals(){
+        $sql = 'SELECT COUNT(*) AS `sickMammals` FROM animal, mammal WHERE animalTag = mammalTag AND keeper_act_of_management NOT LIKE "healthy"';
         return $this->db_query($sql);
     }
 
-    public function getHealthyReptiles(){
-        $sql = 'SELECT COUNT(*) FROM animal, reptiles WHERE animalTag = repTag AND keeper_act_of_management LIKE "healthy"';
+    public function getUnhealthyReptiles(){
+        $sql = 'SELECT COUNT(*) AS `sickReptiles` FROM animal, reptile WHERE animalTag = repTag AND keeper_act_of_management NOT LIKE "healthy"';
         return $this->db_query($sql);
     }
 

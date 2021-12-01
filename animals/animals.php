@@ -1,3 +1,8 @@
+<?php
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +17,67 @@
 <body>
 
     <div class="container">
-        <img src="../resources/images/birds.png" class="rounded" alt="birds">
-        <img src="../resources/images/mammals.png" class="rounded" alt="mammals">
-        <img src="../resources/images/reptiles.png" class="rounded" alt="reptiles">
+
+        <div class="">
+            <div class="card">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em"> ADD </text></svg>
+
+                <div class="card-body">
+                <div class="cate-add">
+                    <h5 class="card-title">CATEGORIES</h5>
+                    <a href= "/add.php" ?>><button class="btn btn-primary" name="add" value="create">ADD</button></a> 
+                </div>
+
+
+                <div class="categories">
+
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em">POPULATION</text></svg>
+                            <div class="card-body">
+                                <h5 class="card-title">MAMMALS</h5>
+                                <p class="card-text"></p>
+                                <p class="card-text"></p>
+                                <p class="card-text"></p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em">POPULATION</text></svg>
+                            <div class="card-body">
+                                <h5 class="card-title">REPTILES :</h5>
+                                <p class="card-text"></p>
+                                <p class="card-text"></p>
+                                <p class="card-text"></p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em">POPULATION</text></svg>
+                            <div class="card-body">
+                                <h5 class="card-title">BIRDS </h5>
+                                <p class="card-text"></p>
+                                <p class="card-text"></p>
+                                <p class="card-text"></p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     
 
