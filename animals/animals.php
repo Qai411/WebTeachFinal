@@ -1,6 +1,3 @@
-<?php
-
-?>
 
 
 <!DOCTYPE html>
@@ -25,7 +22,7 @@
                 <div class="card-body">
                 <div class="cate-add">
                     <h5 class="card-title">CATEGORIES</h5>
-                    <a href= "/add.php" ?>><button class="btn btn-primary" name="add" value="create">ADD</button></a> 
+                    <a href= "add.php" ?><button class="btn btn-primary" name="add" value="create">ADD</button></a>
                 </div>
 
 
