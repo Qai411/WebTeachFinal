@@ -4,7 +4,45 @@
     $recruiter->db_connect();
     
     $generalErrors = array('generalName' => '', 'kingdom' => '', 'phylum' => '', 'class'=>'', 'ordr' => '', 'family'=> '', 'genus'=>'', 'species'=>'' , 'sex'=> '' );
-    $specificErrors = array()
+
+
+    function validate($name, $regex){
+        global $generalErrors;
+        if(empty($_POST[$name])){
+            $generalErrors[$name] = "Required";
+        }else{
+            $input = $_POST[$name];
+            if(!preg_match($regex, $input)){
+                $generalErrors[$name] = "Invalid";
+            }
+        }
+    }
+
+
+    function validateRadio(){
+        global $generalErrors;
+        if($_POST['sex'] == null){
+            $generalErrors['sex'] = "required";
+        }
+    }
+
+    if (isset($_POST['SUBMIT_FINAL'])){
+        validate("generalName",'/^[a-z]+$/');
+        validate("kingdom",'/^[a-z]+$/');
+        validate("phylum",'/^[a-z]+$/');
+        validate("class",'/^[a-z]+$/');
+        validate("ordr",'/^[a-z]+$/');
+        validate("family",'/^[a-z]+$/');
+        validate("genus",'/^[a-z]+$/');
+
+        validateRadio();
+        
+
+
+
+        
+
+    }
 ?>
 
 
@@ -19,23 +57,31 @@
 </head>
 <body>
     <div class="container">
-        <form action="" method="post">
+        <form action="add.php" method="post">
             <fieldset>
                 <legend>Personal Information</legend>
 
-                <input type="text" placeholder="Name" name="generalName" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['generalName'] : ""; ?> > <br>
-                <input type="text" placeholder="kingdom" name="kingdom" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['kingdom'] : ""; ?> > <br>
-                <input type="text" placeholder="phylum" name="phylum" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['phylum'] : ""; ?> > <br>
-                <input type="text" placeholder="class" name="class" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['class'] : ""; ?> >  <br>
-                <input type="text" placeholder="order" name="ordr" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['ordr'] : ""; ?> >  <br>
-                <input type="text" placeholder="family" name="family" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['family'] : ""; ?> > <br>
-                <input type="text" placeholder="genus" name="genus" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['genus'] : ""; ?>>  <br>
-                <input type="text" placeholder="species" name="species" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['species'] : ""; ?> > <br>
+                <input type="text" placeholder="Name" name="generalName" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['generalName'] : ""; ?> > 
+                <small><?php echo $generalErrors['generalName']; ?></small> <br>
+                <input type="text" placeholder="kingdom" name="kingdom" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['kingdom'] : ""; ?> >
+                <small><?php echo $generalErrors['kingdom']; ?></small><br>
+                <input type="text" placeholder="phylum" name="phylum" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['phylum'] : ""; ?> >
+                <small><?php echo $generalErrors['phylum']; ?></small> <br>
+                <input type="text" placeholder="class" name="class" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['class'] : ""; ?> >
+                <small><?php echo $generalErrors['class']; ?></small>  <br>
+                <input type="text" placeholder="order" name="ordr" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['ordr'] : ""; ?> >
+                <small><?php echo $generalErrors['ordr']; ?></small>  <br>
+                <input type="text" placeholder="family" name="family" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['family'] : ""; ?> >
+                <small><?php echo $generalErrors['family']; ?></small> <br>
+                <input type="text" placeholder="genus" name="genus" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['genus'] : ""; ?>>
+                <small><?php echo $generalErrors['genus']; ?></small>  <br>
+                <input type="text" placeholder="species" name="species" value=<?= isset($_POST['general']) || isset($_POST['SUBMIT_FINAL'])? $_POST['species'] : ""; ?> >
+                <small><?php echo $generalErrors['species']; ?></small> <br>
 
-                <input type="radio" id="male" name="sex">
+                <input type="radio" id="male" name="sex" value='M'>
                 <label for="male">Male</label>
 
-                <input type="radio" id="female" name="sex">
+                <input type="radio" id="female" name="sex" value="F">
                 <label for="female">Female</label>
                 <br>
                 <input type="date" id="dob" name="dob">
