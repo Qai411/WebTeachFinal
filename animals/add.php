@@ -88,17 +88,14 @@
         $recruiter->getID();
         $id = $recruiter->db_fetch()[0]['id'];
 
-        echo $id;
-
+        //Using the previous id to generate the next id
         $newId  = explode("-", $id)[1];
         echo "   ".$newId . "   ";
         $number_on_roll = explode("Z", $newId)[1];
         echo print_r(explode("Z", $newId));
-        echo    "      " . ++$number_on_roll . "        ";
-
+        ++$number_on_roll;   //increase the id by 1
         $realId = explode("-", $id)[0] . "-". explode("Z", $newId)[0] . "Z" . strval($number_on_roll);
         echo "realID is :". $realId;
-
 
        echo var_dump($recruiter->storeAnimal($realId, 'ZKP-002', $generalName, $kingdom, $phylum, $class, $order, $family, $genus ,$species, $sex, '2018-06-13', '2020-01-27', 45, "omnivore", "healthy", "HBT-17", "1"));
         $recruiter->getID();
@@ -116,17 +113,16 @@
                 $recruiter->storeMammal($realId,$skin, $maturity);
             }
 
-
-            if(!array_filter($generalErrors) && $_POST['animalType'] === 'bird' && !array_filter($mammalErrors)){
+            if(!array_filter($generalErrors) && $_POST['animalType'] === 'bird' && !array_filter($birdErrors)){
                 echo "will be adding bird";
                 //bird Specialisation
                 $beakType = $_POST['beakType'];
                 $feetType = $_POST['feetType'];
                 $birdEggs = $_POST['birdEggs'];
-                $recruiter->storeBird($realId, $birdTag, $beakType, $feetType, $birdEggs);
+                $recruiter->storeBird($realId, $beakType, $feetType, $birdEggs);
             }
 
-            if(!array_filter($generalErrors) && $_POST['animalType'] === 'reptile' && !array_filter($mammalErrors)){
+            if(!array_filter($generalErrors) && $_POST['animalType'] === 'reptile' && !array_filter($reptileErrors)){
                 echo "will be adding reptile";
                 //reptile Specialisation
                 $reptEggs =  $_POST['reptEggs'];
@@ -134,7 +130,6 @@
                 $recruiter->storeReptile($realId, $reptEggs, $isPoisonous);
             }
         }
-
     }
 ?>
 
@@ -181,8 +176,6 @@
                 </div>
 
                 
-
-                
                 <br>
                 <select id="animalType" name="animalType">
                     <option value="">--Animal Type--</option>
@@ -226,7 +219,7 @@
                     ?>
                         <select id="beakType" name="beakType">
                             <option value="">--Beak Type--</option>
-                            <option value="'meat-eater'">Meat Eater</option>
+                            <option value="meat-eater">Meat Eater</option>
                             <option value="seed-eater">Seed Eater</option>
                             <option value="fruit-nut-eater">Fruit-Nut Eater</option>
                             <option value="fish-eater">Fish eater</option>
@@ -235,7 +228,7 @@
                         <br>
                         <select id="feetType" name="feetType">
                             <option value="">--Feet Type--</option>
-                            <option value="'anisodactyl'">Anisodactyl</option>
+                            <option value="anisodactyl">Anisodactyl</option>
                             <option value="zygodactyl">Zygodactyl</option>
                             <option value="heterodactyl">Heterodactyl</option>
                             <option value="pamprodactyl">Pamprodactyl</option>
@@ -259,7 +252,7 @@
                     <br>
                         <select id="isPoisonous" name="isPoisonous">
                             <option value="">--Vernomous?--</option>
-                            <option value="'non-poisonous'">Non-poisonous</option>
+                            <option value="non-poisonous">Non-poisonous</option>
                             <option value="poisonous">Poisonous</option>
                         </select>
                         <small><?php echo $reptileErrors['isPoisonous']; ?></small>
