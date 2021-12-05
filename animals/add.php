@@ -3,8 +3,10 @@
     $recruiter = new Management;
     $recruiter->db_connect();
     
-    $generalErrors = array('generalName' => '', 'kingdom' => '', 'phylum' => '', 'class'=>'', 'ordr' => '', 'family'=> '', 'genus'=>'', 'species'=>'' , 'sex'=> '' );
-
+    $generalErrors = array('generalName' => '', 'kingdom' => '', 'phylum' => '', 'class'=>'', 'ordr' => '', 'family'=> '', 'genus'=>'', 'species'=>'' , 'sex'=> '', 'animalType' => '');
+    $mammalErrors = array('skin'=>'', 'maturity'=>'');
+    $reptileErrors = array('reptEggs'=>'', 'isPoisonous'=>'');
+    $birdErrors = array('beakType'=>'', 'feetType'=>'', 'birdEggs'=>'');
 
     function validate($name, $regex){
         global $generalErrors;
@@ -18,29 +20,117 @@
         }
     }
 
-
-    function validateRadio(){
+    function validateSelect($name){
         global $generalErrors;
-        if($_POST['sex'] == null){
-            $generalErrors['sex'] = "required";
+        if(empty($_POST[$name])){
+            $generalErrors[$name] = "Required";
         }
     }
 
+    function validateRept($name){
+        global $reptileErrors;
+        if(empty($_POST[$name])){
+            $generalErrors[$name] = "Required";
+        }
+    }
+
+    function validateMammal($name){
+        global $reptileErrors;
+        if(empty($_POST[$name])){
+            $generalErrors[$name] = "Required";
+        }
+    }
+
+    function validateBird($name){
+        global $reptileErrors;
+        if(empty($_POST[$name])){
+            $generalErrors[$name] = "Required";
+        }
+    }
+
+
+
+
     if (isset($_POST['SUBMIT_FINAL'])){
-        validate("generalName",'/^[a-z]+$/');
-        validate("kingdom",'/^[a-z]+$/');
-        validate("phylum",'/^[a-z]+$/');
-        validate("class",'/^[a-z]+$/');
-        validate("ordr",'/^[a-z]+$/');
-        validate("family",'/^[a-z]+$/');
-        validate("genus",'/^[a-z]+$/');
+        validate("generalName",'/^[a-zA-Z]+$/');
+        validate("kingdom",'/^[a-zA-Z]+$/');
+        validate("phylum",'/^[a-zA-Z]+$/');
+        validate("class",'/^[a-zA-Z]+$/');
+        validate("ordr",'/^[a-zA-Z]+$/');
+        validate("family",'/^[a-zA-Z]+$/');
+        validate("genus",'/^[a-zA-Z]+$/');
 
-        validateRadio();
+        validateSelect("animalType");
+        validateMammal("skin");
+        validateMammal("maturity");
+        validateBird("beakType");
+        validateBird("feetType");
+        validateBird("birdEggs");
+        validateRept("reptEggs");
+        validateRept("isPoisonous");
+
+        $generalName =  $_POST['generalName'];
+        $kingdom =  $_POST['kingdom'];
+        $phylum =  $_POST['phylum'];
+        $class =  $_POST['class'];
+        $order =  $_POST['ordr'];
+        $family = $_POST['family'];
+        $genus =  $_POST['genus'];
+        $species =  $_POST['species'];
+        $sex =  $_POST['sex'];
+
+        $animalType =  $_POST['animalType'];
+
         
+        $recruiter->getID();
+        $id = $recruiter->db_fetch()[0]['id'];
+
+        echo $id;
+
+        $newId  = explode("-", $id)[1];
+        echo "   ".$newId . "   ";
+        $number_on_roll = explode("Z", $newId)[1];
+        echo print_r(explode("Z", $newId));
+        echo    "      " . ++$number_on_roll . "        ";
+
+        $realId = explode("-", $id)[0] . "-". explode("Z", $newId)[0] . "Z" . strval($number_on_roll);
+        echo "realID is :". $realId;
 
 
+       echo var_dump($recruiter->storeAnimal($realId, 'ZKP-002', $generalName, $kingdom, $phylum, $class, $order, $family, $genus ,$species, $sex, '2018-06-13', '2020-01-27', 45, "omnivore", "healthy", "HBT-17", "1"));
+        $recruiter->getID();
+        echo "REALEST ID" .$recruiter->db_fetch()[0]['id'];
 
-        
+        print_r($generalErrors);
+
+        if(!array_filter($generalErrors)){
+
+            if(!array_filter($generalErrors) && $_POST['animalType'] === 'mammal' && !array_filter($mammalErrors)){
+                echo "will be adding mammal";
+                        //Mammal specialisation
+                $skin =  $_POST['skin'];
+                $maturity =  $_POST['maturity'];
+                $recruiter->storeMammal($realId,$skin, $maturity);
+            }
+
+
+            if(!array_filter($generalErrors) && $_POST['animalType'] === 'bird' && !array_filter($mammalErrors)){
+                echo "will be adding bird";
+                //bird Specialisation
+                $beakType = $_POST['beakType'];
+                $feetType = $_POST['feetType'];
+                $birdEggs = $_POST['birdEggs'];
+                $recruiter->storeBird($realId, $birdTag, $beakType, $feetType, $birdEggs);
+            }
+
+            if(!array_filter($generalErrors) && $_POST['animalType'] === 'reptile' && !array_filter($mammalErrors)){
+                echo "will be adding reptile";
+                //reptile Specialisation
+                $reptEggs =  $_POST['reptEggs'];
+                $isPoisonous = $_POST['isPoisonous'];
+                $recruiter->storeReptile($realId, $reptEggs, $isPoisonous);
+            }
+        }
 
     }
 ?>
@@ -83,9 +173,6 @@
 
                 <input type="radio" id="female" name="sex" value="F">
                 <label for="female">Female</label>
-                <br>
-                <input type="date" id="dob" name="dob">
-                <br>
 
                 <select id="animalType" name="animalType">
                     <option value="">--Animal Type--</option>
@@ -93,6 +180,8 @@
                     <option value="reptile">Reptile</option>
                     <option value="bird">Bird</option>
                 </select>
+                <small><?php echo $generalErrors['animalType']; ?></small> <br>
+                
 
             </fieldset>
 
@@ -100,15 +189,17 @@
 
             <?php
                 if(isset($_POST['general'])){
-                    
+                    ?>
+
+                    <?php
                     if($_POST['animalType'] === 'mammal'){
                         ?>
-
                         <select id="skin" name="skin">
                             <option value="">--Skin--</option>
                             <option value="fur">Fur</option>
                             <option value="furless">Furless</option>
                         </select>
+                        <small><?php echo $mammalErrors['skin']; ?></small>
                         <br>
                         <select id="maturity" name="maturity">
                             <option value="">--Maturity--</option>
@@ -116,6 +207,7 @@
                             <option value="mother">Mother</option>
                             <option value="cub">Cub</option>
                         </select>  
+                        <small><?php echo $mammalErrors['maturity']; ?></small>
                         <br>
                     <?php
                     }
@@ -129,6 +221,7 @@
                             <option value="fruit-nut-eater">Fruit-Nut Eater</option>
                             <option value="fish-eater">Fish eater</option>
                         </select> 
+                        <small><?php echo $birdErrors['beakType']; ?></small>
                         <br>
                         <select id="feetType" name="feetType">
                             <option value="">--Feet Type--</option>
@@ -137,24 +230,29 @@
                             <option value="heterodactyl">Heterodactyl</option>
                             <option value="pamprodactyl">Pamprodactyl</option>
                         </select>
+                        <small><?php echo $birdErrors['feetType']; ?></small>
                         <br>
                         <label for="bEggs">Averages eggs laid: </label>
                         <input id="bEggs" type="number" name="birdEggs">
                         <br>
                     <?php
                     }
+                    ?>
 
+                    <?php
                     if($_POST['animalType'] === 'reptile'){
                     ?>
 
                     <label for="rEggs">Average Eggs laid: </label>
                     <input id="rEggs" type="number" name="reptEggs">
+                    <small><?php echo $reptileErrors['reptEggs']; ?></small>
                     <br>
                         <select id="isPoisonous" name="isPoisonous">
-                            <option value="">--Feet Type--</option>
+                            <option value="">--Vernomous?--</option>
                             <option value="'non-poisonous'">Non-poisonous</option>
                             <option value="poisonous">Poisonous</option>
                         </select>
+                        <small><?php echo $reptileErrors['isPoisonous']; ?></small>
                         <br>
             <?php
                     }

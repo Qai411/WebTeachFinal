@@ -2,22 +2,43 @@
 require_once('../settings/db_conn.php');
 
 class Management extends DbConnection{
+
     public function storeAnimal(
             $anmalTag, $assignedKeeper, $generalName, $kingdom, $phylum, $class,
             $ordr, $family, $genus, $species,
             $sex, $dob, $admissionDate, $life_expectancy, $feedType, 
             $keeper_act_of_management, $homeID, $reportID
         ){
-        $sql  = "INSERT INTO `animal`(`animalTag`, `assignedKeeper`, `generalName`, `kingdom`, `phylum`, `class`,
-            `ordr`, `family`, `genus`, `species`,
-           `sex`, `dob`, `admissionDate`, `life_expectancy`, `feedType`, 
-           `keeper_act_of_management`, `homeID`, `reportID` VALUES ('$anmalTag', '$assignedKeeper', '$generalName', '$kingdom', '$phylum', '$class',
+        $sql  = "INSERT INTO `animal` VALUES ('$anmalTag', '$assignedKeeper', '$generalName', '$kingdom', '$phylum', '$class',
             '$ordr', '$family', '$genus', '$species',
             '$sex', '$dob', '$admissionDate', '$life_expectancy', '$feedType', 
             '$keeper_act_of_management', '$homeID', '$reportID')";
 
         return $this->db_query($sql);
     }
+
+    public function storeBird($birdTag, $beakType, $feetType, $birdEggs){
+        $sql = "INSERT INTO `bird` VALUES ('$birdTag', '$beakType', '$feetType', '$birdEggs')";
+        return $this->db_query($sql);
+    }
+
+    public function storeMammal($mammalTag,$skin,$maturity){
+        $sql = "INSERT INTO `mammal` VALUES ('$mammalTag','$skin','$maturity')";
+        return $this->db_query($sql);
+    }
+
+    public function storeReptile($repTag, $reptEggs, $isPoisonous){
+        $sql = "INSERT INTO `bird` VALUES ('$repTag', '$reptEggs', '$isPoisonous')";
+        return $this->db_query($sql);
+    }    
+
+    //Fetches the id of the recently entered data
+    public function getID(){
+        $sql = 'SELECT `animalTag` as `id` FROM `animal` ORDER BY `animalTag` DESC LIMIT 1';
+        return $this->db_query($sql);
+    }
+
+
 
     // public function recruitPersonnel(
     //     we are not recruiting anyone
