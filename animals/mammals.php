@@ -13,41 +13,56 @@
     <title>Mammals</title>
 </head>
 <body>
-    <h1 class="center">Mammals</h1>
-
+    
     <p>
         <?php  
             $management->getAllMammals();
             $mammals = $management->db_fetch();
+
+            $management->getTotalBirds();
+            $pop = $management->db_fetch();
         ?>
     </p>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>General Name</th>
-                <th>Feed Type</th>
-                <th>More</th>
-            </tr>
-        </thead>
+    <div class="container position-relative">
 
-        <tbody>
-            <?php
-                foreach($mammals as $eachMammal){
-            ?>
-            <tr>
-                <td style='display: none'><?= $eachMammal['mammalTag']?></td>
-                <td><span> <?php
-                    echo htmlspecialchars($eachMammal['generalName']); 
-                ?> </span></td>
-                <td> <?php echo htmlspecialchars($eachMammal["feedType"]);?></td>
-                <td><button name="more" value=<?= $eachMammal['mammalTag'] ?> class="btn btn-success">MORE</button></td>
-            </tr>
-            
-            <?php } ?>
-        </tbody>
-    </table>
+        <h1 class="center">Mammals</h1>
 
+        <h3 class="position-absolute top-0 end-0 ">
+                Population : <?php echo $pop[0]["all"];?>
+        </h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>General Name</th>
+                    <th>Feed Type</th>
+                    <th>More</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                    foreach($mammals as $eachMammal){
+                ?>
+                <tr>
+                    <td style='display: none'><?= $eachMammal['mammalTag']?></td>
+                    <td><span> <?php
+                        echo htmlspecialchars($eachMammal['generalName']); 
+                    ?> </span></td>
+                    <td> <?php echo htmlspecialchars($eachMammal["keeper_act_of_management"]);?></td>
+                    <td><button name="more" value=<?= $eachMammal['mammalTag'] ?> class="btn btn-success">MORE</button></td>
+                </tr>
+                
+                <?php } ?>
+            </tbody>
+        </table>
+        
+    </div>
+
+
+
+    
 
 </body>
 </html>

@@ -17,7 +17,7 @@
 
         <div class="">
             <div class="card">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em"> ADD </text></svg>
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="45%" y="50%" fill="#dee2e6" dy=".3em"> ANIMALS </text></svg>
 
                 <div class="card-body">
                 <div class="cate-add">
@@ -30,13 +30,13 @@
 
                     <div class="col-sm-6 col-lg-4 mb-4">
                         <div class="card">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em">POPULATION</text></svg>
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em">MAMMALS</text></svg>
                             <div class="card-body">
-                                <h5 class="card-title">MAMMALS</h5>
-                                <p class="card-text"></p>
-                                <p class="card-text"></p>
-                                <p class="card-text"></p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <h5 class="card-title">DESCRIPTION</h5>
+                                <p class="card-text">Any member of the group of vertebrate animals in which the young are nourished with milk from special mammary glands of the mother</p>
+                                <p class="card-text"><a href="https://www.britannica.com/animal/mammal">More about Mammals</a></p>
+                                <p class="card-text"><a href="mammals.php"><button class="btn btn-warning">Have a Peak</button></a></p>
+                                <p class="card-text"><small class="text-muted">Fun Fact: Mammals have the highest emotions amongst all creatures</small></p>
                             </div>
                         </div>
                     </div>
@@ -44,13 +44,13 @@
 
                     <div class="col-sm-6 col-lg-4 mb-4">
                         <div class="card">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em">POPULATION</text></svg>
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em">REPTILES</text></svg>
                             <div class="card-body">
-                                <h5 class="card-title">REPTILES :</h5>
-                                <p class="card-text"></p>
-                                <p class="card-text"></p>
-                                <p class="card-text"></p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <h5 class="card-title">DESCRIPTION</h5>
+                                <p class="card-text">Any member of the class Reptilia, the group of air-breathing vertebrates that have internal fertilization, amniotic development, and epidermal scales covering part or all of their body</p>
+                                <p class="card-text"><a href="https://www.britannica.com/animal/reptile">More about Reptiles</a></p>
+                                <p class="card-text"><a href="reptiles.php"><button class="btn btn-warning">Have a Peak</button></a></p>
+                                <p class="card-text"><small class="text-muted">Fun Fact: Reptiles are cold-blooded</small></p>
                             </div>
                         </div>
                     </div>
@@ -58,18 +58,18 @@
 
                     <div class="col-sm-6 col-lg-4 mb-4">
                         <div class="card">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em">POPULATION</text></svg>
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="120" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Statistics of Animals</title><rect width="100%" height="100%" fill="#172774"/><text x="30%" y="50%" fill="#dee2e6" dy=".3em">BIRDS</text></svg>
                             <div class="card-body">
-                                <h5 class="card-title">BIRDS </h5>
-                                <p class="card-text"></p>
-                                <p class="card-text"></p>
-                                <p class="card-text"></p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <h5 class="card-title">DESCRIPTION</h5>
+                                <p class="card-text">Any warm-blooded vertebrates more related to reptiles than to mammals that have forelimbs modified into wings (a trait shared with bats), a hard-shelled egg, and keen vision, the major sense they rely on for information about the environment.</p>
+                                <p class="card-text"><a href="https://www.britannica.com/animal/bird-animal">More about Birds</a></p>
+                                <p class="card-text"><a href="birds.php"><button class="btn btn-warning">Have a Peak</button></a></p>
+                                <p class="card-text"><small class="text-muted">Fun Fact: Birds have four chambered heart like mammals</small></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text"><small class="text-muted"><a href="../dashboard/dasboard.php"><button class="btn btn-primary">Back to Dashboard</button></a></small></p>
                 </div>
             </div>
         </div>

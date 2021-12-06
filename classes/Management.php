@@ -67,6 +67,10 @@ class Management extends DbConnection{
         $sql = "UPDATE `vetcenter` SET `reportID` = '$id' `lab` = '$location', `drugsUsed` = '$drugsUsed'";
     }
 
+    public function updateHealthCondition($condition, $tag){
+        $sql = "UPDATE `animal` SET `keeper_act_of_management` = '$condition' WHERE `animalTag` = '$tag'";
+    }
+
     //same as delete
     public function exportAnimal($id){
         $sql = "DELETE FROM `animal` WHERE `animalTag` = '$id'";
@@ -121,13 +125,13 @@ class Management extends DbConnection{
     }
 
     public function getAllBirds(){
-        $sql = 'SELECT `birdTag`,`generalName`, `species`, `admission_date` FROM `animal`,`bird` WHERE `animalTag` = `birdTag`';
+        $sql = 'SELECT `birdTag`,`generalName`, `keeper_act_of_management`, `admission_date` FROM `animal`,`bird` WHERE `animalTag` = `birdTag`';
         return $this->db_query($sql);
     }
 
 
     public function getAllMammals(){
-        $sql = 'SELECT `mammalTag`, `generalName`, `feedType` FROM `animal`, `mammal` WHERE `animalTag` = `mammalTag`';
+        $sql = 'SELECT `mammalTag`, `generalName`, `keeper_act_of_management` FROM `animal`, `mammal` WHERE `animalTag` = `mammalTag`';
         return $this->db_query($sql);
     }
 
