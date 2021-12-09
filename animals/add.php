@@ -11,48 +11,6 @@
     $reptileErrors = array('reptEggs'=>'', 'isPoisonous'=>'');
     $birdErrors = array('beakType'=>'', 'feetType'=>'', 'birdEggs'=>'');
 
-    // function validate($name, $regex){
-    //     global $generalErrors;
-    //     if(empty($_POST[$name])){
-    //         $generalErrors[$name] = "Required";
-    //     }else{
-    //         $input = $_POST[$name];
-    //         if(!preg_match($regex, $input)){
-    //             $generalErrors[$name] = "Invalid";
-    //         }
-    //     }
-    // }
-
-    // function validateSelect($name){
-    //     global $generalErrors;
-    //     if(empty($_POST[$name])){
-    //         $generalErrors[$name] = "Required";
-    //     }
-    // }
-
-    // function validateRept($name){
-    //     global $reptileErrors;
-    //     if(empty($_POST[$name])){
-    //         $reptileErrors[$name] = "Required";
-    //     }
-    // }
-
-    // function validateMammal($name){
-    //     global $reptileErrors;
-    //     if(empty($_POST[$name])){
-    //         $mammalErrors[$name] = "Required";
-    //     }
-    // }
-
-    // function validateBird($name){
-    //     global $reptileErrors;
-    //     if(empty($_POST[$name])){
-    //         $birdErrors[$name] = "Required";
-    //     }
-    // }
-
-
-
 
     if (isset($_POST['SUBMIT_FINAL'])){
         $valid->validate("generalName",'/^[a-zA-Z]+$/',$generalErrors);
@@ -90,44 +48,40 @@
 
         //Using the previous id to generate the next id
         $newId  = explode("-", $id)[1];
-        echo "   ".$newId . "   ";
         $number_on_roll = explode("Z", $newId)[1];
-        echo print_r(explode("Z", $newId));
         ++$number_on_roll;   //increase the id by 1
         $realId = explode("-", $id)[0] . "-". explode("Z", $newId)[0] . "Z" . strval($number_on_roll);
-        echo "realID is :". $realId;
+        //------end of algorithm-----//
 
-       echo var_dump($recruiter->storeAnimal($realId, 'ZKP-002', $generalName, $kingdom, $phylum, $class, $order, $family, $genus ,$species, $sex, '2018-06-13', '2020-01-27', 45, "omnivore", "healthy", "HBT-17", "1"));
+        $recruiter->storeAnimal($realId, 'ZKP-002', $generalName, $kingdom, $phylum, $class, $order, $family, $genus ,$species, $sex, '2018-06-13', '2020-01-27', 45, "omnivore", "healthy", "HBT-17", "1");
         $recruiter->getID();
-        echo "REALEST ID" .$recruiter->db_fetch()[0]['id'];
-
-        print_r($generalErrors);
+        $recruiter->db_fetch()[0]['id'];
 
         if(!array_filter($generalErrors)){
 
             if(!array_filter($generalErrors) && $_POST['animalType'] === 'mammal' && !array_filter($mammalErrors)){
-                echo "will be adding mammal";
-                        //Mammal specialisation
+                //Mammal specialisation
                 $skin =  $_POST['skin'];
                 $maturity =  $_POST['maturity'];
                 $recruiter->storeMammal($realId,$skin, $maturity);
+                echo '<script>alert("Animal added to database");</script>';
             }
 
             if(!array_filter($generalErrors) && $_POST['animalType'] === 'bird' && !array_filter($birdErrors)){
-                echo "will be adding bird";
                 //bird Specialisation
                 $beakType = $_POST['beakType'];
                 $feetType = $_POST['feetType'];
                 $birdEggs = $_POST['birdEggs'];
                 $recruiter->storeBird($realId, $beakType, $feetType, $birdEggs);
+                echo '<script>alert("Animal added to database");</script>';
             }
 
             if(!array_filter($generalErrors) && $_POST['animalType'] === 'reptile' && !array_filter($reptileErrors)){
-                echo "will be adding reptile";
                 //reptile Specialisation
                 $reptEggs =  $_POST['reptEggs'];
                 $isPoisonous = $_POST['isPoisonous'];
                 $recruiter->storeReptile($realId, $reptEggs, $isPoisonous);
+                echo '<script>alert("Animal added to database");</script>';
             }
         }
     }
@@ -170,7 +124,7 @@
                
                 <div style="display: flex;">
                     <label for="male">Male</label>
-                    <input type="radio" id="male" name="sex" value='M'>
+                    <input type="radio" id="male" name="sex" value='M' checked>
                     <label for="female">Female</label>
                     <input type="radio" id="female" name="sex" value="F">
                 </div>
@@ -217,7 +171,7 @@
                 
                     if($_POST["animalType"] === "bird"){
                     ?>
-                        <select id="beakType" name="beakType">
+                        <select id="beakType" name="beakType" value=<?php echo isset($_POST["beakType"])?$_POST["beakType"] : ""; ?>>
                             <option value="">--Beak Type--</option>
                             <option value="meat-eater">Meat Eater</option>
                             <option value="seed-eater">Seed Eater</option>
@@ -226,7 +180,7 @@
                         </select> 
                         <small><?php echo $birdErrors['beakType']; ?></small>
                         <br>
-                        <select id="feetType" name="feetType">
+                        <select id="feetType" name="feetType" value=<?php echo isset($_POST['feetType']) ? $_POST['feetType'] : "";?>>
                             <option value="">--Feet Type--</option>
                             <option value="anisodactyl">Anisodactyl</option>
                             <option value="zygodactyl">Zygodactyl</option>
@@ -247,7 +201,7 @@
                     ?>
 
                     <label for="rEggs">Average Eggs laid: </label>
-                    <input id="rEggs" type="number" name="reptEggs">
+                    <input id="rEggs" type="number" name="reptEggs" value="<?php echo isset($_POST['reptEggs'])?$_POST['reptEggs'] : 0 ;?>>">
                     <small><?php echo $reptileErrors['reptEggs']; ?></small>
                     <br>
                         <select id="isPoisonous" name="isPoisonous">
