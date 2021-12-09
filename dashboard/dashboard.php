@@ -50,7 +50,7 @@ $sickBirds = $management->db_fetch();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dashboard.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/dashboard.css?v=<?php echo time(); ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Dashboard</title>
 </head>
@@ -63,8 +63,7 @@ $sickBirds = $management->db_fetch();
                 <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                     <li><a href="../home/home.php"><img id= "homeHover" src="../resources/images/home_white.png" alt="home" title="Home" /></a></li>
                     <li><a href="../animals/animals.php"><img src="../resources/images/animal_white.png" alt="animals" title="Animals"></a></li>
-                    <li><img src="../resources/images/people_white.png" alt="people" title="Workers"></li>
-                    <li><img src="../resources/images/landused_white.png" alt="resources" title="Land Used"></li>
+                    <li><a href="../endowment/resources.php"><img src="../resources/images/landused_white.png" alt="resources" title="Land Used"></a></li>
                 </ul>
             </div>
         </div>

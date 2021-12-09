@@ -32,9 +32,29 @@ class Management extends DbConnection{
         return $this->db_query($sql);
     }    
 
+    public function createFeed($feed, $amount){
+        $sql = "INSERT INTO `feed` VALUES ('$feed', '$amount')";
+        return $this->db_query($sql);
+    }
+
+    public function createStructure($id, $description, $length, $width, $habitat){
+        $sql = "INSERT INTO `habitat` VALUES ('$id', '$description', '$length', '$width', '$habitat')";
+        return $this->db_query($sql);
+    }
+
     //Fetches the id of the recently entered data
     public function getID(){
         $sql = 'SELECT `animalTag` as `id` FROM `animal` ORDER BY `animalTag` DESC LIMIT 1';
+        return $this->db_query($sql);
+    }
+
+    public function getIDFeed(){
+        $sql = 'SELECT `feed` as `id` FROM `animal` ORDER BY `animalTag` DESC LIMIT 1';
+        return $this->db_query($sql);
+    }
+
+    public function getIDStructure(){
+        $sql = 'SELECT `homeID` as `id` FROM `habitat` ORDER BY `homeID` DESC LIMIT 1';
         return $this->db_query($sql);
     }
 

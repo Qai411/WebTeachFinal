@@ -82,6 +82,7 @@
                 $isPoisonous = $_POST['isPoisonous'];
                 $recruiter->storeReptile($realId, $reptEggs, $isPoisonous);
                 echo '<script>alert("Animal added to database");</script>';
+                
             }
         }
     }
@@ -195,7 +196,6 @@
                     <?php
                     }
                     ?>
-
                     <?php
                     if($_POST['animalType'] === 'reptile'){
                     ?>
