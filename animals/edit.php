@@ -4,28 +4,41 @@ session_start();
 $moreInfo = new Management;
 $moreInfo->db_connect();
 
-$_SESSION['token'] =  $_POST['more'];  //this is the id that uniquely identifies every animal
-$token = $_SESSION['token'];
+ //this is the id that uniquely identifies every animal
+$token = $_SESSION['id'];
 
-
-print_r($data);
-
-if(isset($_POST['updateHealth'])){
-    $condtion = $_POST['health'];
-    $moreInfo->updateHealthCondition($conditon, $token);
-    header("Location: animals.php");
-}
-
-if(isset($_POST['discard'])){
-    echo '<script>confirm("Do you want to discard this animal?")</script>';
-    //$moreInfo->exportAnimal($token);
-    // header("Location: animals.php");
-}
 
 $moreInfo->getSingleAnimal($token);
 $data = $moreInfo->db_fetch();
 
+if(isset($_POST['updateHealth'])){
+    $condition = $_POST['health'];
 
+    if(!($condition == "")){
+        var_dump($moreInfo->updateHealthCondition($condition, $token));
+        echo $_POST['health'] . "   ". $token;
+        session_abort();
+    }
+    header("Location: animals.php");
+
+}
+ ?>
+
+<?php
+if(isset($_POST['discard'])){
+    ?>
+    <script> cf =  confirm("Do you want to discard this animal?");
+    cf();
+    if (cf){
+        <?php echo
+            $moreInfo->exportAnimal($token);
+            session_abort();
+            header("Location: animals.php");
+        ?>
+    }
+    </script>
+    <?php
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,28 +48,33 @@ $data = $moreInfo->db_fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Making Changes</title>
+    <link rel="stylesheet" href="../css/edit.css?v=<?php echo time();?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-    <div>
-        <img src="" alt="No image uploaded yet">
+    <div class="container form-control">
+        <div>
+            <img src="" alt="No image uploaded yet">
+        </div>
+
+        <div id="details">
+            <p>Real Name: <?php  echo $data[0]['generalName']?></p>
+            <p>Species: <?php  echo $data[0]['species']?></p>
+            <p>sex: <?php  echo $data[0]['sex']?></p>
+            <p>Life-Expectancy: <?php  echo $data[0]['life_expectancy']?></p>
+        </div>
+
+
+        <div>
+            <form action="" method="post">
+                <input type="text" name="health" placeholder="current health status" value=<?php isset($token) ? $token : "";?> ><br>
+                <input type="submit" value="Save changes" class="btn btn-success" name="updateHealth"><br>
+
+                <input type="submit" name="discard" id="delete" value="DISCARD" class="btn btn-danger">
+            </form>
+        </div>
     </div>
 
-    <div>
-        <p>Real Name: <?php  echo $data[0]['generalName']?></p>
-        <p>Species: <?php  echo $data[0]['species']?></p>
-        <p>sex: <?php  echo $data[0]['sex']?></p>
-        <p>Life-Expectancy: <?php  echo $data[0]['life_expectancy']?></p>
-    </div>
 
-
-    <div>
-        <form action="" method="post">
-            <textarea id="health" type="text" name="health" value=<?php echo $data[0]['keeper_act_of_management']; ?> placeholder="current health status"></textarea><br>
-            <input type="submit" value="Save changes" class="btn btn-success" name="updateHealth"><br>
-
-            <input type="submit" name="discard" id="delete" value="DISCARD" class="btn btn-danger">
-        </form>
-    </div>
 </body>
 </html>

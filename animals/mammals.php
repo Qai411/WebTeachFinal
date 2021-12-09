@@ -2,6 +2,18 @@
     require_once("../classes/Management.php");
     $management = new Management;
     $management->db_connect();
+
+    session_start();
+
+    if (isset($_POST['more'])){
+        $_SESSION['id'] = $_POST['more'];
+        header("Location: edit.php");
+    }
+
+?>
+
+<?php
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +63,10 @@
                         echo htmlspecialchars($eachMammal['generalName']); 
                     ?> </span></td>
                     <td> <?php echo htmlspecialchars($eachMammal["keeper_act_of_management"]);?></td>
-                    <td><button name="more" value=<?= $eachMammal['mammalTag'] ?> class="btn btn-success">MORE</button></td>
+                    <form action="mammals.php" method="post">
+                        <td><button class="btn" style="background-color:#172774; color: white;" name="more" value=<?= $eachMammal['mammalTag'] ?> class="btn btn-success">MORE</button></td>
+                    </form>
+                    
                 </tr>
                 
                 <?php } ?>

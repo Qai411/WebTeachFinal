@@ -3,11 +3,21 @@
     $management = new Management;
     $management->db_connect();
 
+    session_start();
+
     $score = new Management();
     $score->db_connect();
 
     $birds = [];
+?>
 
+<?php
+    if(isset($_POST['more'])){
+        $_SESSION['id'] = $_POST['more'];
+
+        header("Location: edit.php");
+
+    }
 ?>
 
 
@@ -18,6 +28,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link rel="stylesheet" href="../../header/header.css"> -->
+    <link rel="stylesheet" href="../css/birds.css?v=<?php echo time();?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Birds</title>
 </head>
@@ -37,7 +48,7 @@
 
         <h1>Birds</h1>
 
-        <h3 class="position-absolute top-0 end-0 ">
+        <h3 class="position-absolute top-0 end-0 " style="padding-right: 30px;">
             Population : <?php echo $pop[0]["all"];?>
         </h3>
     
@@ -61,8 +72,8 @@
                     ?> </span></td>
                     <td> <?php echo htmlspecialchars($eachBird["keeper_act_of_management"]);?></td>
                     <td><?php echo htmlspecialchars($eachBird["admission_date"]); ?></td>
-                    <form action="edit.php" method="post" enctype="multipart/form">
-                    <td><button name="more" value=<?= $eachBird['birdTag'] ?> class="btn btn-success">MORE</button></td>
+                    <form action="birds.php" method="post" enctype="multipart/form">
+                    <td><button style="background-color:#004643; color: white;" name="more" value=<?= $eachBird['birdTag'] ?> class="btn btn-success">MORE</button></td>
                     </form>
                 </tr>
                 

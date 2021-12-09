@@ -65,15 +65,18 @@ class Management extends DbConnection{
     //For drug used, it will be id (1,2, or 3), loaction (LB main gate, LB mainroom,LB Core room), etc and drugUsed (sleeping pils, First Aid, etc)
     public function admitAnimalToVet($id, $location, $drugUsed){
         $sql = "UPDATE `vetcenter` SET `reportID` = '$id' `lab` = '$location', `drugsUsed` = '$drugsUsed'";
+        return $this->db_query($sql);
     }
 
     public function updateHealthCondition($condition, $tag){
         $sql = "UPDATE `animal` SET `keeper_act_of_management` = '$condition' WHERE `animalTag` = '$tag'";
+        return $this->db_query($sql);
     }
 
     //same as delete
     public function exportAnimal($id){
         $sql = "DELETE FROM `animal` WHERE `animalTag` = '$id'";
+        return $this->db_query($sql);
     }
 
 

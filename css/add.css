@@ -1,0 +1,48 @@
+legend{
+    color: white;
+}
+.container{
+    background-color: #004643;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    margin-top: 40px;
+    padding: 25px;
+}
+
+form{
+    justify-content: center;
+    padding-left: 20px;
+}
+
+form input{
+    margin: 13px auto;
+    width: 100%;
+    border-radius: 3px;
+    width: 100%;
+    position: relative;
+    background-color: #E8E8CC;
+}
+
+
+input[type="radio"]{
+    margin: 2px 2px;
+    display: flex;
+}
+
+
+body{
+    background-color: #f9fafb;
+    font-family: 'Open Sans', 'sans-serif';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+label{
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+}
+
