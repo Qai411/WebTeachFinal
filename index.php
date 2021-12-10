@@ -12,6 +12,7 @@
     <h3>Name: Kasim Ibrahim</h3>
     <h3>Ashesi University</h3>
     <h3>Link to Demo will be available: <a href="#">here</a> </h3> 
+    <h3>Go to project: <a href="login/login.php">Here</a></h3>
 
 </body>
 </html>

@@ -2,6 +2,13 @@
     require_once("../classes/Management.php");
     $management = new Management;
     $management->db_connect();
+
+    session_start();
+
+    if (isset($_POST['more'])){
+        $_SESSION['id'] = $_POST['more'];
+        header("Location: edit.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +59,10 @@
                         echo htmlspecialchars($eachReptile['generalName']); 
                     ?> </span></td>
                     <td> <?php echo htmlspecialchars($eachReptile["isPoisonous"]);?></td>
-                    <td><button class="btn" name="more" style="background-color:#ff8906; color: white;" value=<?= $eachReptile['repTag'] ?> class="btn btn-success">MORE</button></td>
+                    <form action="reptiles.php" method="POST">
+                        <td><button class="btn" name="more" style="background-color:#ff8906; color: white;" value=<?= $eachReptile['repTag'] ?> class="btn btn-success">MORE</button></td>
+                    </form>
+                    
                 </tr>
                 
                 <?php } ?>

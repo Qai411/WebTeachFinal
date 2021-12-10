@@ -34,8 +34,10 @@ body{
     margin-bottom: 50%;
 }
 
-#homeHover:hover{
-    background-color: red;
+ul li a img:hover{
+    width: 70px;
+    height: 65px;
+    transition: .1s;
 }
 
 .flex-1-2{

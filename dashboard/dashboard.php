@@ -58,7 +58,7 @@ $sickBirds = $management->db_fetch();
     <div class="overallContent">
 
         <div class="sideContent d-flex-column flex-shrink-0">
-            <img class="mb-4" src="../resources/images/logo.png" alt="Logo">
+            <a href="../login/login.php"><img class="mb-4" src="../resources/images/logo.png" alt="Logo" Title="Log Out" style="margin-left: 27px;"></a>
             <div class="sideCenterPos">
                 <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                     <li><a href="../home/home.php"><img id= "homeHover" src="../resources/images/home_white.png" alt="home" title="Home" /></a></li>
