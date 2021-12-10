@@ -52,6 +52,7 @@ if(isset($_POST['discard'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+    <a href="animals.php">Back</a>
     <div class="container form-control">
         <div>
             <img src= <?= '../profiles/'.$data[0]['generalName'].'.jpg'?> alt="No image uploaded yet" width=200px height=150px">

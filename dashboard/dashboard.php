@@ -84,7 +84,7 @@ $sickBirds = $management->db_fetch();
                             <p class="card-text">Number of Mammals: <?php echo $mammals[0]['all']?></p>
                             <p class="card-text">Number of Reptiles: <?php echo $reptiles[0]['all']?></p>
                             <p class="card-text">Number of Birds: <?php echo $birds[0]['all']?></p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text"><small class="text-muted">Up to Date</small></p>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ $sickBirds = $management->db_fetch();
                                 ?>
                                 <?php } ?>
                             </p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text"><small class="text-muted">Up to Date</small></p>
                             </div>
                         </div>
                     </div>
@@ -119,11 +119,11 @@ $sickBirds = $management->db_fetch();
                             <h5 class="card-title">LAND USE AND FEED QTY</h5>
                             <p class="card-text">
                                 <?php 
-                                    echo $foodKg[0]['food'] . " Kg needed to feed animals" ."<br />";
+                                    echo $foodKg[0]['food'] . " Kg required to feed animals" ."<br />";
                                     echo $construction[0]['acres']. " square meters of land used";
                                 ?>
                             </p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text"><small class="text-muted">Up to Date</small></p>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@ $sickBirds = $management->db_fetch();
                                     echo "Sick Birds: ". $sickBirds[0]['sickBirds'] .'<br />';
                                 ?>
                             </p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text"><small class="text-muted">Up to date</small></p>
                             </div>
                         </div>
                     </div>

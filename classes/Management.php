@@ -58,14 +58,6 @@ class Management extends DbConnection{
         return $this->db_query($sql);
     }
 
-
-
-    // public function recruitPersonnel(
-    //     we are not recruiting anyone
-    // ){
-        
-    // }
-
     //All animals
     public function getAnimalsInfo(){
         $sql = "SELECT * FROM `animal`";
