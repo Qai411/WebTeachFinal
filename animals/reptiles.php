@@ -52,7 +52,7 @@
                         echo htmlspecialchars($eachReptile['generalName']); 
                     ?> </span></td>
                     <td> <?php echo htmlspecialchars($eachReptile["isPoisonous"]);?></td>
-                    <td><button class="btn" name="more" style="background-color:#ff8906; color: white; value=<?= $eachReptile['repTag'] ?> class="btn btn-success">MORE</button></td>
+                    <td><button class="btn" name="more" style="background-color:#ff8906; color: white;" value=<?= $eachReptile['repTag'] ?> class="btn btn-success">MORE</button></td>
                 </tr>
                 
                 <?php } ?>

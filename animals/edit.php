@@ -54,7 +54,7 @@ if(isset($_POST['discard'])){
 <body>
     <div class="container form-control">
         <div>
-            <img src="" alt="No image uploaded yet">
+            <img src= <?= '../profiles/'.$data[0]['generalName'].'.jpg'?> alt="No image uploaded yet" width=200px height=150px">
         </div>
 
         <div id="details">

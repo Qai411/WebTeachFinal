@@ -31,7 +31,7 @@
             $management->getAllMammals();
             $mammals = $management->db_fetch();
 
-            $management->getTotalBirds();
+            $management->getTotalMammals();
             $pop = $management->db_fetch();
         ?>
     </p>

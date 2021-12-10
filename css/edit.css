@@ -26,12 +26,13 @@ body{
     width: 100%;
     padding: 10px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 #details{
     display: block;
     margin-left: 40%;
-    color:rgba(218, 82, 19, 0.925);
+    color:rgba(7, 116, 31, 0.925);
 }
 
 #details p{
@@ -41,6 +42,6 @@ body{
 
 img{
     display: block;
-    margin-left: 35%;
+    margin-left: 40%;
     
 }
