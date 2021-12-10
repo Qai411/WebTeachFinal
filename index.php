@@ -7,6 +7,11 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>INDEX </h1>
+    <h1>WEB TECH FINAL PROJECT </h1>
+
+    <h3>Name: Kasim Ibrahim</h3>
+    <h3>Ashesi University</h3>
+    <h3>Link to Demo will be available: <a href="#">here</a> </h3> 
+
 </body>
 </html>
